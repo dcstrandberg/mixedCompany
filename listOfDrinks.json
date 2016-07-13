@@ -1,0 +1,39 @@
+{
+    "drinkList": [
+        {
+            "name": "Screwdriver",
+            "ingredients": [
+                "vodka",
+                "orange juice"
+            ],
+            "recipe": [
+                "Add 1 shot of vodka to glass of ice",
+                "Add 6 oz. of orange juice",
+                "Stir thoroughly"
+            ]
+        },
+        {
+            "name": "Vodka Redbull",
+            "ingredients": [
+                "vodka",
+                "red bull"
+            ],
+            "recipe": [
+                "Mix 1 shot vodka with 1 can Red Bull",
+                "Enjoy!"
+            ]
+        },
+        {
+            "name": "Rum & Coke",
+            "ingredients": [
+                "rum",
+                "cola"
+            ],
+            "recipe": [
+                "Pour 1 shot of rum over ice",
+                "Add 6 oz. of cola",
+                "Stir vigorously and serve"
+            ]
+        }
+    ]
+}

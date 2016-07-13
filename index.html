@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <title>Mixed Company</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body ng-app="mixedCompany" ng-controller="mixedController as vm">
+
+<header>
+    <p>Mixed Company</p>
+   <label>Search for ingredients</label>
+    <input type='search' class='search' ng-model="vm.search" />
+</header>
+
+<div>
+<ul class="liquorList">
+    <li class='liquor' ng-repeat="option in vm.liquorList | ingredientSearch:vm.search">
+        <span ng-class="{selected: option.selected}" ng-click="vm.addLiquor(option)"> {{option.name}} </span>
+    </li>
+</ul>
+</div>
+
+<div class="drinkList">
+<p>Possible Cocktails</p>
+<ul>
+    <li class='drink' ng-repeat='drink in vm.drinks | possibleDrinks:vm.availableLiquors'>
+        You could make: 
+        <span ng-click="vm.showRecipe(drink)">{{drink.name}}</span>
+        <span ng-show="drink.missing" class="missing">You'd need to pick up: {{drink.missing}}</span>
+        <ul ng-show="drink.recipeVisible" class="recipe">
+            <li class="recipeStep" ng-repeat="step in drink.recipe">
+                {{step}}
+            </li>
+        </ul>
+    </li>
+</ul>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

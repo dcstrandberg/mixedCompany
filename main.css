@@ -1,0 +1,124 @@
+body {
+    width: 100%;
+    
+    background-color: #FAFAFF;
+    color: #221199;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    box-sizing: border-box;
+}
+header {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    top: 0;
+    left: 0;
+
+    display: inline-flex;
+    align-items: center;
+
+    margin: 0;
+    padding: 0, 50px;
+
+    color: #EEEEFF;
+    background-color: #221199;
+    border-bottom: 2px solid #221199;
+}
+header p {
+    margin-left: 100px;
+    margin-right: auto;
+    font-size: 40px;
+}
+header label {
+    margin-left: auto;
+    margin-right: 0px;
+}
+header input.search {
+    height: 32px;
+    width: 200px;
+
+    padding: 4px;
+    margin-left: 30px;
+    margin-right: 50px;
+}
+.liquorList {
+    margin-top: 92px;
+    /*
+    margin-left: 0;
+    margin-right: 0;
+    */
+    list-style-type: none;
+
+    /*border: 1px solid green;*/
+}
+.liquorList li {
+    height: 90px;
+    width: 210px;
+
+    display: inline-flex;
+
+    margin: 0px; 
+    padding: 0px 10px;
+
+    justify-content: center;
+    align-items: center;
+}
+.liquorList li span {
+    height: 90px;
+    width: 200px;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin: auto;
+
+    background-color: #EEEEFF;
+    border: 1px solid cornflowerblue;
+    border-radius: 4px;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.liquorList li span:hover {
+    box-shadow: 5px 5px 5px cornflowerblue; 
+}
+.liquorList li span.selected {
+    color: #FAFAFF;
+    background-color: #221199;
+}
+.drinkList {
+    width: 100%;
+    position: relative;
+
+    margin-top: 0px;
+    padding: 0;
+
+    list-style-type: none;
+}
+.drinkList p {
+    font-size: 36px;
+    margin-left: 100px;
+}
+.drinkList .drink {
+    width: 90%;
+    height: 80px;
+
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    border-bottom: 2px solid cornflowerblue;
+}
+.drinkList .drink span {
+    margin-left: 50px;
+    margin-right: auto;
+}
+.drinkList .drink span.missing {
+    margin-left: auto;
+    margin-right: 100px;
+
+    opacity: 0.7;
+}
