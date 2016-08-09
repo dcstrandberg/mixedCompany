@@ -16,14 +16,9 @@ header {
     left: 0;
 
     display: inline-flex;
-    align-items: center;
 
     margin: 0;
-    padding: 0, 50px;
-
-    color: #EEEEFF;
-    background-color: #221199;
-    border-bottom: 2px solid #221199;
+    color: #221199;
 }
 header p {
     margin-left: 100px;
@@ -40,17 +35,25 @@ header input.search {
 
     padding: 4px;
     margin-left: 30px;
-    margin-right: 50px;
+    margin-right: 150px;
 }
 .liquorList {
     margin-top: 92px;
-    /*
-    margin-left: 0;
-    margin-right: 0;
-    */
-    list-style-type: none;
 
-    /*border: 1px solid green;*/
+    /* so that the liquorList will stretch all the way left*/
+    margin-left: -10px;
+
+    display: inline-flex;
+    overflow-x: visible;
+    height: 110px;
+
+    align-items: center;
+
+    background-color: cornflowerblue;
+    border-top: 2px solid #221199;
+    border-bottom: 2px solid #221199;
+
+    list-style-type: none;
 }
 .liquorList li {
     height: 90px;
@@ -59,7 +62,7 @@ header input.search {
     display: inline-flex;
 
     margin: 0px; 
-    padding: 0px 10px;
+    padding: 0px;
 
     justify-content: center;
     align-items: center;
@@ -77,30 +80,80 @@ header input.search {
     background-color: #EEEEFF;
     border: 1px solid cornflowerblue;
     border-radius: 4px;
+    
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+/* no need for drop shadows
+.liquorList li span:hover {
+    box-shadow: 5px 5px 5px cornflowerblue; 
+}*/
+.liquorList li span.selected {
+    color: #FAFAFF;
+    background-color: #221199;
+}
+.possible {
+    width: 100%;
+    position: fixed;
+    top: 200px;
+
+    display: inline-flex;
+    align-items: flex-end;
+    border-bottom: 2px solid #221199;
+}
+.possible p {
+    font-size: 36px;
+    margin-left: 100px;
+    margin-bottom: 0px;
+}
+.possible span {
+    width: 100px;
+    height: 36px; 
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: #221199;
+    color: #FAFAFF;
+    margin-left: auto;
+    margin-right: 100px;
+    margin-bottom: 5px;
+
+    font-size: 18px;
+    border: none;
+    border-radius: 3px;
 
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
 }
-.liquorList li span:hover {
-    box-shadow: 5px 5px 5px cornflowerblue; 
-}
-.liquorList li span.selected {
-    color: #FAFAFF;
-    background-color: #221199;
+.possible span:hover {
+    background-color: #EEEEFF;
+    border: 1px solid cornflowerblue;
 }
 .drinkList {
     width: 100%;
-    position: relative;
+    height: 100%;
+    position: fixed;
+    top: 200px;
 
-    margin-top: 0px;
+    overflow-y: scroll;
+
+    margin-top: 50px;
     padding: 0;
-
+}
+.drinkList ul {
+    height: 100%;
+    overflow-y: scroll;
+}
+.drinkList li.drinkItem {
     list-style-type: none;
 }
-.drinkList p {
-    font-size: 36px;
-    margin-left: 100px;
+.drinkList li.drinkItem:last-child {
+    background-color: red;
+    margin-bottom: 200px;
 }
 .drinkList .drink {
     width: 90%;
@@ -121,4 +174,23 @@ header input.search {
     margin-right: 100px;
 
     opacity: 0.7;
+}
+.drinkList ul li ul.recipe {
+    width: 100%;
+    display: block;
+
+    list-style-type: none;
+
+    position: relative;
+    min-width: 200px;
+    
+    margin: 0px;
+    padding: 5px;
+    /*border: 2px solid cornflowerblue;*/
+}
+.drinkList ul li ul.recipe li.recipeStep {
+    width: fit-content;
+    margin: 5px 0px;
+
+    list-style-type: none;
 }

@@ -18,9 +18,18 @@ app.controller('mixedController', ['$http', function($http) {
        vm.drinks = [];
        
        // get the list of drinks, then iterate through their ingredients list
-       $http.get('listOfDrinks.json').then(function(response) {
+       //$http.get('listOfDrinks.json').then(function(response) {
+       $http.get('practice.json').then(function(response) {
            for (var i = 0; i < response.data.drinkList.length; i++) {
                for (var j = 0; j < response.data.drinkList[i].ingredients.length; j++) {
+                   /*// strip the ingredient of measurement info
+                   var array = response.data.drinkList[i].ingredients.split(' '), item;
+
+                   for (var h = array.length - 1; h >= 0; h++) {
+                       if (array[h].match(/([0-9]|tsp|tbsp|oz|dash)/))
+                       item = array[h] + item;
+                   }*/
+
                    // if the ingredient doesn't yet exist in liquorList, push it
                    if (vm.liquorList.indexOf(response.data.drinkList[i].ingredients[j]) < 0) {
                         vm.liquorList.push(response.data.drinkList[i].ingredients[j]);
@@ -47,7 +56,7 @@ app.controller('mixedController', ['$http', function($http) {
             vm.availableLiquors.splice(index, 1);
             liquor.selected = false;
         }
-    }
+    };
 
     vm.showRecipe = function(drink) {
         if (!drink) {
@@ -56,7 +65,17 @@ app.controller('mixedController', ['$http', function($http) {
         }
 
         drink.recipeVisible = (drink.recipeVisible) ? false : true;
-    }
+    };
+
+    vm.clear = function() {
+        for (var i = 0; i < vm.liquorList.length; i++) {
+            vm.liquorList[i].selected = false;
+        }
+        for (i = 0; i < vm.drinks.length; i++) {
+            vm.drinks[i].recipeVisible = false;
+        }
+        vm.availableLiquors = [];
+    };
 }]);
 
 // now a function for the Filter 

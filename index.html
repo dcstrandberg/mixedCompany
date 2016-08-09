@@ -16,19 +16,25 @@
 
 <div>
 <ul class="liquorList">
-    <li class='liquor' ng-repeat="option in vm.liquorList | ingredientSearch:vm.search">
+    <li class='liquor' ng-repeat="option in vm.liquorList | ingredientSearch:vm.search | orderBy:'name'">
         <span ng-class="{selected: option.selected}" ng-click="vm.addLiquor(option)"> {{option.name}} </span>
     </li>
 </ul>
 </div>
 
+<div class="possible">
+    <p>Possible Cocktails</p>
+    <span ng-click="vm.clear()">Clear All</span>
+</div>
+
 <div class="drinkList">
-<p>Possible Cocktails</p>
 <ul>
-    <li class='drink' ng-repeat='drink in vm.drinks | possibleDrinks:vm.availableLiquors'>
-        You could make: 
-        <span ng-click="vm.showRecipe(drink)">{{drink.name}}</span>
-        <span ng-show="drink.missing" class="missing">You'd need to pick up: {{drink.missing}}</span>
+    <li class="drinkItem" ng-repeat='drink in vm.drinks | possibleDrinks:vm.availableLiquors'>
+        <div class='drink'>
+            You could make: 
+            <span ng-click="vm.showRecipe(drink)">{{drink.name}}</span>
+            <span ng-show="drink.missing" class="missing">You'd need to pick up: {{drink.missing}}</span>
+        </div>
         <ul ng-show="drink.recipeVisible" class="recipe">
             <li class="recipeStep" ng-repeat="step in drink.recipe">
                 {{step}}
